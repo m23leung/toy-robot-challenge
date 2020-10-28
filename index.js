@@ -28,12 +28,13 @@ const readLine = readline.createInterface({
 
 // Retrieve User Input
 readLine.on("line", (input) => { 
+    robot.handleCommand(input);
     readLine.prompt(); 
 });
 
 // Set Ending Prompt
 readLine.on("close", () => {
-    console.log("\nGOODBYE !!!");
+    console.log("\nSee you later!!!");
     process.exit(0);
 });
 

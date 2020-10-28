@@ -19,7 +19,7 @@ const slice = createSlice({
            place(state, action);
         },
         reportUnit: (state, action) => {
-            report(state, action);
+            return report(state, action);
         }
     }
 })
