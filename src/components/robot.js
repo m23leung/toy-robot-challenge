@@ -1,17 +1,28 @@
+import configureStore from '../store/store';
+import { handleCommand } from './parser';
+import { notOnBoard } from "../validations/errorMessages";
 
 import chalk from "chalk";
-const colors   = require('colors');
+const colors = require('colors');
 
+// Initialize store
+const store = configureStore();
+
+/*
+store.subscribe((state) => {
+    console.log("STORE CHANGED!!!", store.getState());
+})
+*/
 export default class robot {
 
     constructor() {
         
-        this.table = null
-        this.robotPlaced = false;
-        this.x = 0;
-        this.y = 0;
-        this.direction = null;
-        //this.history = [];
+        var table = null
+        var robotPlaced = false;
+        var x = 0;
+        var y = 0;
+        var direction = null;
+        //var history = [];
     } 
 
     printMessage() {
@@ -47,5 +58,19 @@ export default class robot {
         this.table = table;
     }
 
+    handleCommand(input) {
+        
+        if (!input.trim()) return;
 
+        const action = handleCommand(input, this);
+
+        if (action === undefined) return;
+
+        // Discard any commands before a PLACE or READ command
+        if ( store.getState().isPlaced || (input.includes("PLACE")) || (input.includes("READ"))) {
+            action.forEach(store.dispatch);  
+        } else {
+            console.log(notOnBoard);
+        }
+    }
 }
