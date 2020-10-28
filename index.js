@@ -1,4 +1,18 @@
-console.log("TOY ROBOT CHALLENGE");
+/* This is the main entry program */
+
+// Package Imports
+import Robot from "./src/components/robot";
+import Table from "./src/components/table";
+
+// Initialize the robot
+let length = 5;
+let width = 5;
+let robot = new Robot(board);
+let board = new Table(length, width);
+robot.setTable(board);
+
+// Print the menu screen details
+robot.printMessage();
 
 // **********************************
 //   ReadLine Input - User Interface
