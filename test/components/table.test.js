@@ -11,10 +11,9 @@ describe("table - Valid Table", function() {
       tableDimensionsList.map( tableDimensions => {
         it(`Create Table - ${tableDimensions.tableWidth}x${tableDimensions.tableLength}`, function() {
           let table = new Table(tableDimensions.tableWidth, tableDimensions.tableLength);
-          let tableBoundaries = table.getBoundaries();
 
-          expect(tableBoundaries.x2).to.be.equal(tableDimensions.tableWidth - 1);
-          expect(tableBoundaries.y2).to.be.equal(tableDimensions.tableLength - 1);
+          expect(table.getX()).to.be.equal(tableDimensions.tableWidth - 1);
+          expect(table.getY()).to.be.equal(tableDimensions.tableLength - 1);
 
         });      
       });

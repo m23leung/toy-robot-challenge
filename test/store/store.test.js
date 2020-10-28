@@ -57,7 +57,7 @@ describe("Redux store test", function() {
     it(`Redux state - report location`, function() {
         
         let result = store.dispatch(reportUnit());
-        console.log("RESULT: ", result);
+        //console.log("RESULT: ", result);
         
     });      
 
