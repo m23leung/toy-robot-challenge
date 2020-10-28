@@ -1,6 +1,6 @@
 
 import { placeUnit, moveUnit, rotateUnit, reportUnit, readFile } from '../store/commands';
-import { invalidCommand, invalidArguments, invalidFileExt, fileNotFound, unassignedBoard } from '../validations/errorMessages';
+import { invalidCommand, invalidArguments, invalidFileExt, fileNotFound, unassignedBoard } from '../constants/errorMessages';
 import { isFileTypeTxt, handleReadCommand } from './helper'; 
 import commandList from "../constants/commandList";
 
@@ -20,6 +20,8 @@ const handleCommand = (input, robot) => {
                     return [moveUnit()];  
                 case commandList.PLACE:
 
+                    // TODO: Put below in helper function
+                    // BEGIN
                     if (!commandArguments) {
                         console.log(invalidArguments);
                         return [];
@@ -30,12 +32,20 @@ const handleCommand = (input, robot) => {
                         return [];
                     }
 
-                    let [x,y,f] = commandArguments.split(',');     
+                    let [x,y,f] = commandArguments.split(',');   
+                    
+                    // If not all args entered, throw invalid arg error
+                    if (!y || !f) {
+                        console.log(invalidArguments);;
+                        return [];
+                    }
+                    // END
+
                     return [placeUnit({ 'x': x, 
                                         'y': y, 
                                         'direction': f, 
-                                        'xLength': robot.table.xLength, 
-                                        'yLength': robot.table.yLength
+                                        'xMax': robot.getTable().getX(), 
+                                        'yMax': robot.getTable().getY()
                                       })];
                 case commandList.READ:
                     if (!commandArguments) {

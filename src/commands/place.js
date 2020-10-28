@@ -3,10 +3,10 @@ import { isValidMove, isValidDirection } from "../validations/validations";
 
 export const place = (state, action) => {
 
-    const { x, y, direction, xLength, yLength } = action.payload;      
+    const { x, y, direction, xMax, yMax } = action.payload;      
     
     // Only place unit if within table boundaries and valid direction
-    if ( isValidMove(x, xLength, y, yLength) && 
+    if ( isValidMove(x, xMax, y, yMax) && 
          isValidDirection(direction) ) {
 
          // Set unit coordinates and direction
@@ -18,8 +18,8 @@ export const place = (state, action) => {
          state.isPlaced = true;
 
          // Set table dimensions
-         state.xMaxLength = xLength;
-         state.yMaxLength = yLength;
+         state.xMax = xMax;
+         state.yMax = yMax;
     }
 
 }
