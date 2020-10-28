@@ -1,6 +1,6 @@
 import configureStore from '../store/store';
 import { handleCommand } from './parser';
-import { notOnBoard } from "../validations/errorMessages";
+import { notOnBoard } from "../constants/errorMessages";
 
 import chalk from "chalk";
 const colors = require('colors');
@@ -17,8 +17,9 @@ export default class robot {
 
     constructor() {
         
-        var table = null
+        var table = null;
         var robotPlaced = false;
+        var robotState = store.getState();
         var x = 0;
         var y = 0;
         var direction = null;
@@ -54,8 +55,17 @@ export default class robot {
         console.log();        
     }
     
+    getState() {
+        this.robotState = store.getState();
+        return this.robotState;
+    }
+
     setTable(table) {
         this.table = table;
+    }
+
+    getTable(table) {
+        return this.table;
     }
 
     handleCommand(input) {

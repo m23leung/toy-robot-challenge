@@ -4,31 +4,19 @@ import Table from "../../src/components/table";
 describe("table - Valid Table", function() {
   
       let tableDimensionsList = [ 
-                                    {'xLength': 5, 'yLength': 5},
-                                    {'xLength': 10, 'yLength': 10},
+                                    {'tableWidth': 5, 'tableLength': 5},
+                                    {'tableWidth': 10, 'tableLength': 10},
                                 ];
 
-      // Test Case #1: Create Table
       tableDimensionsList.map( tableDimensions => {
-        it(`Create Table - ${tableDimensions.xLength}x${tableDimensions.yLength}`, function() {
-          let table = new Table(tableDimensions.xLength, tableDimensions.yLength);
+        it(`Create Table - ${tableDimensions.tableWidth}x${tableDimensions.tableLength}`, function() {
+          let table = new Table(tableDimensions.tableWidth, tableDimensions.tableLength);
+          let tableBoundaries = table.getBoundaries();
 
-          expect(table.getX()).to.be.equal(tableDimensions.xLength - 1);
-          expect(table.getY()).to.be.equal(tableDimensions.yLength - 1);
-        });     
-      });
-   
-      // Test Case #2: Change Table Size 
-      let oldDimensions = tableDimensionsList[0];
-      let newDimensions = {'xLength': 15, 'yLength': 15} ;
+          expect(tableBoundaries.x2).to.be.equal(tableDimensions.tableWidth - 1);
+          expect(tableBoundaries.y2).to.be.equal(tableDimensions.tableLength - 1);
 
-      it(`Change Table Size - ${oldDimensions.xLength}x${oldDimensions.yLength} to ${newDimensions.xLength}x${newDimensions.yLength}`, function() {       
-        
-        let table = new Table(oldDimensions.xLength, oldDimensions.yLength);
-        table.changeSize(newDimensions.xLength, newDimensions.yLength);
-
-        expect(table.getX()).to.be.equal(newDimensions.xLength - 1);
-        expect(table.getY()).to.be.equal(newDimensions.yLength - 1); 
+        });      
       });
 
 });

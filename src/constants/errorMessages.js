@@ -1,5 +1,5 @@
 export const invalidDirection = "That is an invalid direction";
-export const invalidPlacement = "Are you trying to kill me?";
+export const invalidPlacement = "You cannot kill me";
 export const invalidCommand   = "Invalid Command Entered";
 export const invalidArguments = "No valid arguments";
 export const invalidFileExt   = "Can only read text files";

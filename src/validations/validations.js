@@ -1,4 +1,4 @@
-import { invalidDirection, invalidPlacement } from "./errorMessages";
+import { invalidDirection, invalidPlacement } from "../constants/errorMessages";
 import directions from "../constants/directions";
 
 export const isValidMove = (x, xMaxLength, y, yMaxLength) => {
