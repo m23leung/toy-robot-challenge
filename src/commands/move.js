@@ -5,7 +5,7 @@ import { isValidMove, isValidDirection } from "../validations/validations";
 export const move = (state, action) => {
 
             // Pull data out from current state
-            let { x, y, direction, xMaxLength, yMaxLength } = state; 
+            let { x, y, direction, xMax, yMax } = state; 
         
             // Calculate newly moved destination
             switch(direction) {
@@ -23,8 +23,9 @@ export const move = (state, action) => {
                     break;                                                               
             }
 
+            console.log(x, xMax, y, yMax);
             // Only finalize moving unit if it is valid within table boundaries
-            if (isValidMove(x, xMaxLength, y, yMaxLength)) {
+            if (isValidMove(x, xMax, y, yMax)) {
                 state.x = parseInt(x);
                 state.y = parseInt(y);    
             }
