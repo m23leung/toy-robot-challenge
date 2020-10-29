@@ -1,25 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { place } from '../commands/place';
-import { move } from '../commands/move';
-import { rotate } from '../commands/rotate';
-import { report } from '../commands/report';
+import Table from "../components/table";
+
+//import { place } from '../commands/place_func';
+//import { move } from '../commands/report_func';
+//import { rotate } from '../commands/rotate_func';
+//import { report } from '../commands/report_func';
+
+import Place from "../commands/place"
+import Move from "../commands/move";
+import Rotate from "../commands/rotate"
+import Report from "../commands/report"
 
 // Forms link to the commands
 const slice = createSlice({
     name: 'state',
     initialState: {},
     reducers: {
-        moveUnit: (state, action) => {    
-           move(state, action);
+        moveUnit: (state, action) => {  
+           let moveItem =  new Move(state, action, 1);
+           moveItem.execute();
         },
         rotateUnit: (state, action) => {   
-            rotate(state, action);
+            //rotate(state, action);
+            let rotateItem =  new Rotate(state, action);
+            rotateItem.execute();                  
         },
         placeUnit: (state, action) => {
-           place(state, action);
+           let placeItem =  new Place(state, action);
+           placeItem.execute();           
         },
         reportUnit: (state, action) => {
-            return report(state, action);
+            let reportItem =  new Report(state, action);
+            reportItem.execute();       
         }
     }
 })

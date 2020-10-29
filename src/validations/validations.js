@@ -1,7 +1,8 @@
-import { invalidDirection, invalidPlacement } from "../constants/errorMessages";
+import { invalidDirection, invalidPlacement, invalidArguments } from "../constants/errorMessages";
 import directions from "../constants/directions";
 
 export const isValidMove = (x, xMaxLength, y, yMaxLength) => {
+    console.log(x,xMaxLength, y,yMaxLength);
     if ( (x > xMaxLength ) || (x < 0) || (y < 0) || (y > yMaxLength )) {
         console.log(invalidPlacement);
         return false;
@@ -15,4 +16,29 @@ export const isValidDirection = (direction) => {
         return false;
     }
     return true;
+}
+
+export const isValidPlaceArgs = (commandArguments) => {
+
+        if (!commandArguments) {
+            console.log(invalidArguments);
+            return false;
+        }
+
+        let [x,y,f] = commandArguments.split(',');   
+        
+        // If not all args entered, or arguments x,y not number, then throw invalid arg error
+        if (!y || !f || isNaN(parseInt(x)) || isNaN(parseInt(y)) ) {
+            console.log(invalidArguments);
+            return false;
+        }
+
+        return true;
+}
+
+export const isRobotOnTable = (robot) => {
+    if (!robot.table) {
+        console.log(unassignedBoard);
+        return false;
+    }
 }

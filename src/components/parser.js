@@ -2,12 +2,13 @@
 import { placeUnit, moveUnit, rotateUnit, reportUnit, readFile } from '../store/commands';
 import { invalidCommand, invalidArguments, invalidFileExt, fileNotFound, unassignedBoard } from '../constants/errorMessages';
 import { isFileTypeTxt, handleReadCommand } from './helper'; 
+import { isValidPlaceArgs, isRobotOnTable } from "../validations/validations"
 import commandList from "../constants/commandList";
 
 const handleCommand = (input, robot) => {
 
     const command = input.toUpperCase().trim();
-    const [commandType, commandArguments] = command.split(' ');    
+    const [commandType, commandArgs] = command.split(' ');    
 
             // Trigger the respective command
             switch(commandType) {
@@ -19,27 +20,11 @@ const handleCommand = (input, robot) => {
                 case commandList.MOVE:
                     return [moveUnit()];  
                 case commandList.PLACE:
-
-                    // TODO: Put below in helper function
-                    // BEGIN
-                    if (!commandArguments) {
-                        console.log(invalidArguments);
-                        return [];
-                    }
-            
-                    if (!robot.table) {
-                        console.log(unassignedBoard);
-                        return [];
-                    }
-
-                    let [x,y,f] = commandArguments.split(',');   
                     
-                    // If not all args entered, or arguments x,y not number, then throw invalid arg error
-                    if (!y || !f || isNaN(parseInt(x)) || isNaN(parseInt(y)) ) {
-                        console.log(invalidArguments);
-                        return [];
-                    }
-                    // END
+                    if (! isValidPlaceArgs(commandArgs)) return [];                    
+                    //if (!isRobotOnTable(robot)) return [];
+
+                    let [x,y,f] = commandArgs.split(',');  
 
                     return [placeUnit({ 'x': x, 
                                         'y': y, 
@@ -52,7 +37,7 @@ const handleCommand = (input, robot) => {
                         console.log(invalidArguments);
                         return [];
                     }
-                    let files = commandArguments.split(',');
+                    let files = commandArgs.split(',');
                     files.map(file => {
                         handleReadCommand(file).map(
                             command => ( robot.handleCommand(command))

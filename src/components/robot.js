@@ -18,12 +18,13 @@ export default class robot {
     constructor() {
         
         var table = null;
-        var robotPlaced = false;
         var robotState = store.getState();
+        
         var x = 0;
         var y = 0;
         var direction = null;
-        //var history = [];
+        //var prevState = {};
+        //var history = []
     } 
 
     printMessage() {
@@ -73,11 +74,15 @@ export default class robot {
         if (!input.trim()) return;
 
         const action = handleCommand(input, this);
-
         if (action === undefined) return;
 
-        // Discard any commands before a PLACE or READ command
-        if ( store.getState().isPlaced || (input.includes("PLACE")) || (input.includes("READ"))) {
+        let initialValidCommands = ["PLACE", "READ"];
+        let commandType = input.split(" ")[0];
+    
+        const isInitValidCommand = initialValidCommands.find(element => element === commandType);
+
+        // If not inside initial valid commands, need to check if placed flag before executing
+        if ( store.getState().isPlaced || isInitValidCommand) {
             action.forEach(store.dispatch);  
         } else {
             console.log(notOnBoard);
