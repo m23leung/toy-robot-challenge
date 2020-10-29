@@ -2,12 +2,12 @@
 
 Toy robot is a program that permits a robot to be controlled from your terminal. It drives around on a 5*5 board and listens to the following commands:
 
-PLACE X,Y,F - Places the robot to on X,Y coordinates facing NORTH, SOUTH, EAST or WEST.
-MOVE - Moves 1 unit in facing direction
-LEFT - Rotates 90 degrees to left
-RIGHT - Rotates 90 degrees to right
-REPORT - Reports current position and facing direction
-READ path/file.txt - Reads a .txt file. Sample test files are provided in the textfiles folder
+- PLACE X,Y,F - Places the robot to on X,Y coordinates facing NORTH, SOUTH, EAST or WEST.
+- MOVE - Moves 1 unit in facing direction
+- LEFT - Rotates 90 degrees to left
+- RIGHT - Rotates 90 degrees to right
+- REPORT - Reports current position and facing direction
+- READ path/file.txt - Reads a .txt file. Sample test files are provided in the textfiles folder
 
 ## Technology Stack
 - Javascript
