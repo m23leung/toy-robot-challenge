@@ -16,15 +16,15 @@ Toy robot is a program that permits a robot to be controlled from your terminal.
 - Mocha / Chai
 
 ## Installation and Usage
-Please have node.js installed.
+Note: Please make sure to have node.js installed.
 
-cd to the root direction and run:
+1. Navigate to the root directory and run:
 - npm install
 
-Now run the application with:
+2. Now run the application with:
 - npm start
 
-You can run the test suite by:
+3. You can run the test suite by:
 - npm test
 
 ## Design desions
