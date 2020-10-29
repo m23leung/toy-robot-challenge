@@ -4,11 +4,13 @@
 import Robot from "./src/components/robot";
 import Table from "./src/components/table";
 
-// Initialize the robot
+// Initialize table
 let length = 5;
 let width = 5;
-let robot = new Robot(board);
 let board = new Table(length, width);
+
+// Initialize robot
+let robot = new Robot();
 robot.setTable(board);
 
 // Print the menu screen details

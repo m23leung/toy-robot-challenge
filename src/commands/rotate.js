@@ -9,7 +9,8 @@ export default class rotate extends command {
     }
 
     undo() {
-        // TODO: to implement
+            let state = this.state;
+            state.direction = state.directionPrev;
     }
 
     rotateUnit() {
@@ -19,6 +20,8 @@ export default class rotate extends command {
         let state = this.state;
         let updatedDirection;
         
+        let directionPrev = direction;
+
         let directionsList = [
             directions.NORTH,
             directions.EAST,
@@ -41,6 +44,7 @@ export default class rotate extends command {
             
         }            
         
+        state.directionPrev = directionPrev;
         state.direction = updatedDirection;
     }
 

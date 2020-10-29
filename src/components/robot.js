@@ -1,6 +1,7 @@
 import configureStore from '../store/store';
 import { handleCommand } from './parser';
 import { notOnBoard } from "../constants/errorMessages";
+import commandList from "../constants/commandList";
 
 import chalk from "chalk";
 const colors = require('colors');
@@ -23,6 +24,7 @@ export default class robot {
         var x = 0;
         var y = 0;
         var direction = null;
+
         //var prevState = {};
         //var history = []
     } 
@@ -76,9 +78,9 @@ export default class robot {
         const action = handleCommand(input, this);
         if (action === undefined) return;
 
-        let initialValidCommands = ["PLACE", "READ"];
-        let commandType = input.split(" ")[0];
-    
+        // Check whether command is an initial valid command (Ex: PLACE, READ)
+        const commandType = input.split(" ")[0];
+        const initialValidCommands = [commandList.PLACE, commandList.READ];
         const isInitValidCommand = initialValidCommands.find(element => element === commandType);
 
         // If not inside initial valid commands, need to check if placed flag before executing

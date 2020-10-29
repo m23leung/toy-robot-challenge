@@ -1,7 +1,6 @@
 
+import { isValidMove } from "../validations/validations";
 import directions from "../constants/directions";
-import { isValidMove, isValidDirection } from "../validations/validations";
-import { invalidPlacement } from "../constants/errorMessages";
 import { command } from "./command";
 
 export default class move extends command {
@@ -16,7 +15,9 @@ export default class move extends command {
     }
 
     undo() {
-        // TODO: to implement
+        let state = this.state;
+        state.x = state.xPrev;
+        state.y = state.yPrev;
     }
 
     moveUnit(steps) {
@@ -24,7 +25,10 @@ export default class move extends command {
         let state = this.state;
         let { x, y, direction, xMax, yMax } = state; 
         
-        // Convert to INT
+        let xPrev = x;
+        let yPrev = y;
+
+        // Convert to Integer
         steps = parseInt(steps);
         y = parseInt(y);
 
@@ -46,6 +50,10 @@ export default class move extends command {
 
         // Only finalize moving unit if it is valid within table boundaries
         if (isValidMove(x, xMax, y, yMax)) {
+
+            state.xPrev = parseInt(xPrev);
+            state.yPrev = parseInt(yPrev);
+
             state.x = parseInt(x);
             state.y = parseInt(y);    
         }       

@@ -1,11 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Table from "../components/table";
 
-//import { place } from '../commands/place_func';
-//import { move } from '../commands/report_func';
-//import { rotate } from '../commands/rotate_func';
-//import { report } from '../commands/report_func';
-
 import Place from "../commands/place"
 import Move from "../commands/move";
 import Rotate from "../commands/rotate"
@@ -21,9 +16,8 @@ const slice = createSlice({
            moveItem.execute();
         },
         rotateUnit: (state, action) => {   
-            //rotate(state, action);
             let rotateItem =  new Rotate(state, action);
-            rotateItem.execute();                  
+            rotateItem.execute();      
         },
         placeUnit: (state, action) => {
            let placeItem =  new Place(state, action);

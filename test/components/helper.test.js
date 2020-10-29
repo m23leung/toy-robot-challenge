@@ -17,10 +17,10 @@ describe("helper - Valid Helper", function() {
             expect(isTrue).to.not.be.equal([]);
         })  
 
-        it(`Valid Helper - handleCommand REPORT`, function() {
-            let isTrue = handleCommand("REPORT");
-            expect(isTrue).to.not.be.equal([]);
-        })  
+        //it(`Valid Helper - handleCommand REPORT`, function() {
+        //    let isTrue = handleCommand("REPORT");
+        //   expect(isTrue).to.not.be.equal([]);
+        //})  
 
         // TODO: Add more cases?
     }) 

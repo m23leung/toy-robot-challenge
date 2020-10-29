@@ -1,8 +1,8 @@
 
-import { placeUnit, moveUnit, rotateUnit, reportUnit, readFile } from '../store/commands';
-import { invalidCommand, invalidArguments, invalidFileExt, fileNotFound, unassignedBoard } from '../constants/errorMessages';
-import { isFileTypeTxt, handleReadCommand } from './helper'; 
-import { isValidPlaceArgs, isRobotOnTable } from "../validations/validations"
+import { placeUnit, moveUnit, rotateUnit, reportUnit } from '../store/commands';
+import { invalidCommand } from '../constants/errorMessages';
+import { handleReadCommand } from './helper'; 
+import { isValidPlaceArgs, isRobotOnTable, hasArgs } from "../validations/validations"
 import commandList from "../constants/commandList";
 
 const handleCommand = (input, robot) => {
@@ -21,8 +21,8 @@ const handleCommand = (input, robot) => {
                     return [moveUnit()];  
                 case commandList.PLACE:
                     
-                    if (! isValidPlaceArgs(commandArgs)) return [];                    
-                    //if (!isRobotOnTable(robot)) return [];
+                    if (! isValidPlaceArgs(commandArgs)) return [];
+                    if (!isRobotOnTable(robot)) return [];
 
                     let [x,y,f] = commandArgs.split(',');  
 
@@ -33,10 +33,9 @@ const handleCommand = (input, robot) => {
                                         'yMax': robot.getTable().getY()
                                       })];
                 case commandList.READ:
-                    if (!commandArguments) {
-                        console.log(invalidArguments);
-                        return [];
-                    }
+
+                    if (!hasArgs(commandArgs)) return [];
+
                     let files = commandArgs.split(',');
                     files.map(file => {
                         handleReadCommand(file).map(

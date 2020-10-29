@@ -1,6 +1,5 @@
 // Helper function for robot.js
-import { placeUnit, moveUnit, rotateUnit, reportUnit, readFile } from '../store/commands';
-import { invalidCommand, invalidArguments, invalidFileExt, fileNotFound, unassignedBoard } from '../constants/errorMessages';
+import { invalidCommand, invalidFileExt, fileNotFound } from '../constants/errorMessages';
 import commandList from "../constants/commandList";
 import fs from 'fs';
 
@@ -34,12 +33,13 @@ export const handleReadCommand = (path) => {
     
 }
 
-
+/*
+// TODO: To remove?
 export const handleCommand = (input, robot) => {
 
     const command = input.toUpperCase().trim();
-    const [commandType, commandArguments] = command.split(' ');    
-    
+    const [commandType, commandArgs] = command.split(' ');    
+
             // Trigger the respective command
             switch(commandType) {
                 case commandList.LEFT:
@@ -50,31 +50,23 @@ export const handleCommand = (input, robot) => {
                 case commandList.MOVE:
                     return [moveUnit()];  
                 case commandList.PLACE:
+                    
+                    if (! isValidPlaceArgs(commandArgs)) return [];
+                    if (!isRobotOnTable(robot)) return [];
 
-                    if (!commandArguments) {
-                        console.log(invalidArguments);
-                        return [];
-                    }
-            
-                    if (!robot.table) {
-                        console.log(unassignedBoard);
-                        return [];
-                    }
+                    let [x,y,f] = commandArgs.split(',');  
 
-                    let [x,y,f] = commandArguments.split(',');     
                     return [placeUnit({ 'x': x, 
                                         'y': y, 
                                         'direction': f, 
-                                        'xLength': robot.table.xLength, 
-                                        'yLength': robot.table.yLength
+                                        'xMax': robot.getTable().getX(), 
+                                        'yMax': robot.getTable().getY()
                                       })];
                 case commandList.READ:
-                    if (!commandArguments) {
-                        console.log(invalidArguments);
-                        return [];
-                    }
-                    let files = commandArguments.split(',');
-                    
+
+                    if (!hasArgs(commandArgs)) return [];
+
+                    let files = commandArgs.split(',');
                     files.map(file => {
                         handleReadCommand(file).map(
                             command => ( robot.handleCommand(command))
@@ -86,3 +78,4 @@ export const handleCommand = (input, robot) => {
                     return [];                                       
             }    
 }
+*/

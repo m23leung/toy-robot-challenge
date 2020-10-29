@@ -8,10 +8,6 @@ export default class place extends command {
         this.placeUnit();   
     }
 
-    undo() {
-        // TODO: to implement
-    }
-
     placeUnit() {
         const { x, y, direction, xMax, yMax } = this.action.payload;      
         let state = this.state;
@@ -31,6 +27,7 @@ export default class place extends command {
              // Set table dimensions
              state.xMax = xMax;
              state.yMax = yMax;
+
         }
     }
 }
