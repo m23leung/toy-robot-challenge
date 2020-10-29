@@ -13,7 +13,6 @@ import directions from "../constants/directions";
 * @param  yMaxLength
 */      
 export const isValidMove = (x, xMaxLength, y, yMaxLength) => {
-    //console.log(x,xMaxLength, y,yMaxLength);
     if ( (x > xMaxLength ) || (x < 0) || (y < 0) || (y > yMaxLength )) {
         console.log(invalidPlacement);
         return false;

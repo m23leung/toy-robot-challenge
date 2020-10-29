@@ -1,39 +1,36 @@
-Toy Robot Simulator
+#Toy Robot Challenge
 
-Description
+Toy robot is a program that permits a robot to be controlled from your terminal. It drives around on a 5*5 board and listens to the following commands:
 
-The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
-There are no other obstructions on the table surface.
-The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
-Create an application that can read in commands of the following (textual) form:
+PLACE X,Y,F - Places the robot to on X,Y coordinates facing NORTH, SOUTH, EAST or WEST.
+MOVE - Moves 1 unit in facing direction
+LEFT - Rotates 90 degrees to left
+RIGHT - Rotates 90 degrees to right
+REPORT - Reports current position and facing direction
+READ path/file.txt - Reads a .txt file. Sample test files are provided in the textfiles folder
 
-PLACE X,Y,F
-MOVE
-LEFT
-RIGHT
-REPORT
-PLACE 
-will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.
+## Technology Stack
+- Javascript
+- Immer
+- Redux
+- Mocha / Chai
 
-The origin (0,0) can be considered to be the SOUTH WEST most corner.
+## Installation and Usage
+Please have node.js installed.
 
-The first valid command to the robot is a PLACE command, after that, any sequence of commands may be issued, in any order, including another PLACE command. The application should discard all commands in the sequence until a valid PLACE command has been executed.
+cd to the root direction and run:
+- npm install
 
-MOVE will move the toy robot one unit forward in the direction it is currently facing.
+Now run the application with:
+- npm start
 
-LEFT and RIGHT will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
+You can run the test suite by:
+- npm test
 
-REPORT will announce the X,Y and F of the robot. This can be in any form, but standard output is sufficient.
+## Design desions
+I have developed this program in mostly an OOP approach, where ES6 classes are used to preserve encapsulation. Redux was used to manage the state of the robot's location on the board. It can also be used to store the previous state and other useful properties. By using the store and action reducers, we are able to execute the appropriate commands for the robot. Immer was chosen to replicate the syntax for mutable objects, while preserving immutability behind the scenes. 
 
-A robot that is not on the table can choose the ignore the MOVE, LEFT, RIGHT and REPORT commands.
+In terms of the flow of the program, the table gets initialized. Afterwards, the robo gets initialized, which then initializes the parser. When the user inputs a command, it goes through the parser, which parses the command and invokes the redux store to process it. The validation functions are used to validate and throw appropriate error messages. The redux store will then dispatch the appropriate command to be executed. Once the command is executed, the state will be mutated and saved. In our case, this means the robot's state on the board is saved after successfully executing the correct commands from the terminal.
 
-Input can be from a file, or from standard input, as the developer chooses.
-
-Provide test data to exercise the application.
-
-The application must be a command line application.
-
-Constraints
-The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
-Any move that would cause the robot to fall must be ignored.
-
+## Conclusion
+If I were to add more features, I would finish incorporating the UNDO functionality, and add the ability to move several steps at a time.
