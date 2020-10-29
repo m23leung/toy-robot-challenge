@@ -6,6 +6,10 @@ import { invalidCommand, invalidFileExt, fileNotFound } from '../constants/error
 import commandList from "../constants/commandList";
 import fs from 'fs';
 
+/**
+ * Checks if the file type extension is .txt
+ * @param  path
+ */   
 export const isFileTypeTxt = (path) => {
     const fileType = path.substr(path.lastIndexOf('.')).toLowerCase();
     
@@ -17,6 +21,10 @@ export const isFileTypeTxt = (path) => {
 	}
 }
 
+/**
+ * Reads the file based on the file path provided 
+ * @param  path
+ */   
 export const handleReadCommand = (path) => {
 
 	if (!isFileTypeTxt(path)) {

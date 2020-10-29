@@ -12,6 +12,11 @@ export default class place extends command {
         this.placeUnit();   
     }
 
+ /**
+ * Places the unit on the board.
+ * If the unit tries to place outside boundaries or provides 
+ * an invalid direction, it will ignore the command.
+ */   
     placeUnit() {
         const { x, y, direction, xMax, yMax } = this.action.payload;      
         let state = this.state;

@@ -10,7 +10,9 @@ import Move from "../commands/move";
 import Rotate from "../commands/rotate"
 import Report from "../commands/report"
 
-// Forms link to the commands
+/**
+* Creates the reducer to be used by store. Forms links to the commands
+*/    
 const slice = createSlice({
     name: 'state',
     initialState: {},

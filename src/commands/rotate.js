@@ -16,7 +16,11 @@ export default class rotate extends command {
             let state = this.state;
             state.direction = state.directionPrev;
     }
-
+/**
+ * Rotates the unit on the board.
+ * The direction which the unit will rotate will be based 
+ * on the side parameter provided by the payload
+ */   
     rotateUnit() {
 
         const { direction } = this.state; 

@@ -8,6 +8,11 @@ import { handleReadCommand } from './helper';
 import { isValidPlaceArgs, isRobotOnTable, hasArgs } from "../validations/validations"
 import commandList from "../constants/commandList";
 
+/**
+ * Processes the command provided by user
+ * @param  input
+ * @param  robot
+ */   
 const handleCommand = (input, robot) => {
 
     const command = input.toUpperCase().trim();

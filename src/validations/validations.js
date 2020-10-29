@@ -5,6 +5,13 @@
 import { invalidDirection, invalidPlacement, invalidArguments, unassignedBoard } from "../constants/errorMessages";
 import directions from "../constants/directions";
 
+/**
+* Checks if the (x,y) coordinate is within the table boundaries
+* @param  x
+* @param  xMaxLength
+* @param  y
+* @param  yMaxLength
+*/      
 export const isValidMove = (x, xMaxLength, y, yMaxLength) => {
     //console.log(x,xMaxLength, y,yMaxLength);
     if ( (x > xMaxLength ) || (x < 0) || (y < 0) || (y > yMaxLength )) {
@@ -14,6 +21,10 @@ export const isValidMove = (x, xMaxLength, y, yMaxLength) => {
     return true;
 }
 
+/**
+* Checks if the direction entered is valid
+* @param  direction
+*/  
 export const isValidDirection = (direction) => {
     if ( !directions[direction]) {
         console.log(invalidDirection);
@@ -22,6 +33,10 @@ export const isValidDirection = (direction) => {
     return true;
 }
 
+/**
+* Checks if there are command line arguments
+* @param  commandArgs
+*/  
 export const hasArgs = (commandArgs) => {
     if (!commandArgs) {
         console.log(invalidArguments);
@@ -30,6 +45,10 @@ export const hasArgs = (commandArgs) => {
     return true;
 }
 
+/**
+* Checks if PLACE command has valid arguments
+* @param  commandArgs
+*/
 export const isValidPlaceArgs = (commandArgs) => {
 
         if (!hasArgs(commandArgs)) return false;
@@ -45,6 +64,10 @@ export const isValidPlaceArgs = (commandArgs) => {
         return true;
 }
 
+/**
+* Checks if robot is on table
+* @param  robot
+*/
 export const isRobotOnTable = (robot) => {
     if (!robot.table) {
         console.log(unassignedBoard);

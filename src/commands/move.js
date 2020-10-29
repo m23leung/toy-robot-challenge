@@ -5,6 +5,7 @@
 import { isValidMove } from "../validations/validations";
 import directions from "../constants/directions";
 import { command } from "./command";
+import { moveParseError } from "../constants/errorMessages";
 
 export default class move extends command {
 
@@ -23,17 +24,31 @@ export default class move extends command {
         state.y = state.yPrev;
     }
 
+/**
+ * Moves the unit X steps in the facing direction.
+ * If the unit tries to move outside boundaries, 
+ * it will ignore the command.
+ * @param  steps
+ */
     moveUnit(steps) {
         // Pull data out from current state
         let state = this.state;
         let { x, y, direction, xMax, yMax } = state; 
-        
-        let xPrev = x;
-        let yPrev = y;
-
+    
         // Convert to Integer
         steps = parseInt(steps);
+        x = parseInt(x);
         y = parseInt(y);
+
+        // If unexpected parse issue, flag as error
+        if (isNaN(steps) || isNaN(x) || isNaN(y)) {
+            console.log(moveParseError);
+            return;
+        }
+
+        // Set previous state to current coordinates
+        let xPrev = x;
+        let yPrev = y;
 
         // Calculate newly moved destination
         switch(direction) {

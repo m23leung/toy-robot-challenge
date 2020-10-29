@@ -13,11 +13,6 @@ const colors = require('colors');
 // Initialize store
 const store = configureStore();
 
-/*
-store.subscribe((state) => {
-    console.log("STORE CHANGED!!!", store.getState());
-})
-*/
 export default class robot {
 
     constructor() {
@@ -33,6 +28,9 @@ export default class robot {
         //var history = []
     } 
 
+    /**
+    * Prints welcome & available commands message
+    */   
     printMessage() {
         console.log('Welcome to the toy robot.'.green.bold);
         console.log('');
@@ -75,6 +73,11 @@ export default class robot {
         return this.table;
     }
 
+    /**
+    * Processes the input from command line
+    * If user enters invalid commands, they will be rejected
+    * @param  input
+    */       
     handleCommand(input) {
         
         if (!input.trim()) return;

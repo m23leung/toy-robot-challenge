@@ -10,6 +10,9 @@ export default class rotate extends command {
         this.reportUnit();  
     }
 
+ /**
+ * Outputs the current location of the unit.
+ */       
     reportUnit() {
         const { x, y, direction } = this.state;   
         console.log(`ROBOT LOCATION (x,y,direction) - (${x},${y}) ${direction} Direction`);              
