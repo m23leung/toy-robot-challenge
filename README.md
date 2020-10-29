@@ -1,7 +1,15 @@
 # Toy Robot Challenge
 
+## Contents
+- [Description](#description)
+- [Technology Stack](#technology-stack)
+- [Get Started](#get-started)
+- [Design and Architecture](#design-and-architecture)
+- [Conclusion](#conclusion)
+
 ![toy_robot](toy_robot.jpg)
 
+## Description
 Toy robot is a program that permits a robot to be controlled from your terminal. It drives around on a 5*5 board and listens to the following commands:
 
 - PLACE X,Y,F - Places the robot to on X,Y coordinates facing NORTH, SOUTH, EAST or WEST.
@@ -17,7 +25,7 @@ Toy robot is a program that permits a robot to be controlled from your terminal.
 - Redux
 - Mocha / Chai
 
-## Installation and Usage
+## Get Started
 Note: Please make sure to have node.js installed.
 
 1. Navigate to the root directory and run:
@@ -29,7 +37,7 @@ Note: Please make sure to have node.js installed.
 3. You can run the test suite by:
 > npm test
 
-## Design desions
+## Design and Architecture
 I have developed this program in mostly an OOP approach, where ES6 classes are used to preserve encapsulation. Redux was used to manage the state of the robot's location on the board. It can also be used to store the previous state and other useful properties. By using the store and action reducers, we are able to execute the appropriate commands for the robot. Immer was chosen to replicate the syntax for mutable objects, while preserving immutability behind the scenes. 
 
 In terms of the flow of the program, the table first gets initialized. Afterwards, the robot gets initialized, which then initializes the parser. When the user inputs a command, it goes through the parser, which parses the command and invokes the redux store to process it. The validation functions are used to validate and throw appropriate error messages. The redux store will then call the reducer with the appropriate dispatched command to be executed. Once the command is executed, the state will be mutated and saved. In our case, this means the robot's state on the board is saved after successfully executing the correct commands from the terminal.
