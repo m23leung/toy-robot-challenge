@@ -32,6 +32,12 @@ const readLine = readline.createInterface({
 
 // Retrieve User Input
 readLine.on("line", (input) => { 
+
+    if (input.toLowerCase().trim() === "exit") {
+        console.log("\nSee you later!!!");
+        process.exit(0);
+    }
+
     robot.handleCommand(input);
     readLine.prompt(); 
 });
