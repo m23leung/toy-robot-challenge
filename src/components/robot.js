@@ -6,6 +6,7 @@ import configureStore from '../store/store';
 import { handleCommand } from './parser';
 import { notOnBoard } from "../constants/errorMessages";
 import commandList from "../constants/commandList";
+import Parser from "./parser";
 
 import chalk from "chalk";
 const colors = require('colors');
@@ -16,16 +17,8 @@ const store = configureStore();
 export default class robot {
 
     constructor() {
-        
-        var table = null;
-        var robotState = store.getState();
-        
-        var x = 0;
-        var y = 0;
-        var direction = null;
-
-        //var prevState = {};
-        //var history = []
+        this.table = null;
+        this.parser = new Parser();
     } 
 
     /**
@@ -60,11 +53,6 @@ export default class robot {
         console.log();        
     }
     
-    getState() {
-        this.robotState = store.getState();
-        return this.robotState;
-    }
-
     setTable(table) {
         this.table = table;
     }
@@ -82,7 +70,7 @@ export default class robot {
         
         if (!input.trim()) return;
 
-        const action = handleCommand(input, this);
+        const action = this.parser.parseCommand(input, this);
         if (action === undefined) return;
 
         // Check whether command is an initial valid command (Ex: PLACE, READ)

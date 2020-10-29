@@ -12,7 +12,6 @@ describe("robot - Valid - Integration Test", function() {
         commandsList.map(commands => {
           commands.map(command => {
             robot.handleCommand(command);
-            console.log("ROBO STATE: ", robot.getState());
           })
         })
       }
