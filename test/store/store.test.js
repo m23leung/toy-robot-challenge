@@ -27,8 +27,8 @@ describe("Redux store test", function() {
           { 'x': 3,
             'y': 2, 
             'direction': 'NORTH',
-            'xLength': 5,
-            'yLength': 5
+            'xLength': 4,
+            'yLength': 4
           }));
 
           // (x,y) = (1,1)
@@ -40,8 +40,8 @@ describe("Redux store test", function() {
             { 'x': 1,
               'y': 1, 
               'direction': 'NORTH',
-              'xLength': 5,
-              'yLength': 5
+              'xLength': 4,
+              'yLength': 4
             }));
 
             // (x,y) = (1,1)
@@ -73,10 +73,64 @@ describe("Redux store test", function() {
            
       });   
       
-    it(`Redux state - report location`, function() {
+    it(`Testing command - report`, function() {
         
         let result = store.dispatch(reportUnit());
   
+    });      
+
+    it(`Testing command - combinations`, function() {
+        
+      store.dispatch(placeUnit(
+        { 'x': 1,
+          'y': 1, 
+          'direction': 'NORTH',
+          'xLength': 4,
+          'yLength': 4
+        }));
+
+        store.dispatch(rotateUnit({'side': sides.LEFT}));
+        store.dispatch(rotateUnit({'side': sides.LEFT}));
+        store.dispatch(moveUnit());
+        store.dispatch(rotateUnit({'side': sides.RIGHT}));
+        store.dispatch(moveUnit());
+        expect(store.getState().x).equal(0);
+        expect(store.getState().y).equal(0);  
+        expect(store.getState().direction).equal(directions.WEST);
+        store.dispatch(rotateUnit({'side': sides.RIGHT}));   
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());     
+        expect(store.getState().x).equal(0);
+        expect(store.getState().y).equal(4);   
+        expect(store.getState().direction).equal(directions.NORTH);
+        store.dispatch(rotateUnit({'side': sides.RIGHT}));           
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());  
+        expect(store.getState().x).equal(4);
+        expect(store.getState().y).equal(4);
+        expect(store.getState().direction).equal(directions.EAST);     
+        store.dispatch(rotateUnit({'side': sides.LEFT}));
+        store.dispatch(rotateUnit({'side': sides.LEFT}));
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit()); 
+        expect(store.getState().x).equal(0);
+        expect(store.getState().y).equal(4);  
+        expect(store.getState().direction).equal(directions.WEST);  
+        store.dispatch(rotateUnit({'side': sides.RIGHT}));   
+        store.dispatch(rotateUnit({'side': sides.RIGHT}));  
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());
+        store.dispatch(moveUnit());     
+        expect(store.getState().x).equal(4);
+        expect(store.getState().y).equal(4);  
+        expect(store.getState().direction).equal(directions.EAST);                                
     });      
 
   });
