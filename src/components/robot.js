@@ -69,8 +69,7 @@ export default class robot {
     */       
     handleCommand(input) {
         
-        if (!input.trim()) return;
-        
+        if (!input.trim()) return;    
         input = input.toUpperCase().trim();
 
         const action = this.parser.parseCommand(input, this);
