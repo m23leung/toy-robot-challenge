@@ -19,13 +19,13 @@ Toy robot is a program that permits a robot to be controlled from your terminal.
 Note: Please make sure to have node.js installed.
 
 1. Navigate to the root directory and run:
-- npm install
+> npm install
 
 2. Now run the application with:
-- npm start
+> npm start
 
 3. You can run the test suite by:
-- npm test
+> npm test
 
 ## Design desions
 I have developed this program in mostly an OOP approach, where ES6 classes are used to preserve encapsulation. Redux was used to manage the state of the robot's location on the board. It can also be used to store the previous state and other useful properties. By using the store and action reducers, we are able to execute the appropriate commands for the robot. Immer was chosen to replicate the syntax for mutable objects, while preserving immutability behind the scenes. 
