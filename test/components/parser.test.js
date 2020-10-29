@@ -3,7 +3,9 @@
 *****************************************************/
 
 import { expect } from 'chai';
-import Parser from '../../src/components/parser'; 
+import Parser, { isFileTypeTxt, parseReadCommand } from '../../src/components/parser'; 
+import Robot from "../../src/components/robot";
+import Table from "../../src/components/table";
 
 describe("Parser - Valid Parser", function() {
     
@@ -12,12 +14,26 @@ describe("Parser - Valid Parser", function() {
 
     paths.map( (path) => {
 
-        it(`Parser Helper - parserCommand REPORT`, function() {
-            let isTrue = parser.parseCommand("REPORT");
-           expect(isTrue).to.not.be.equal([]);
+        it(`Parser - isFileTypeTxt - ${path}`, function() {
+            let isTrue = isFileTypeTxt(path);
+            expect(isTrue).to.be.equal(true);
         })  
 
-        // TODO: Add more cases?
+        it(`Parser - parseReadCommand ${path}`, function() {
+            let isTrue = parseReadCommand(path);
+            expect(isTrue).to.not.be.equal([]);
+        })  
+        
+        it(`Parser - parseCommand READ`, function() {
+
+            let board = new Table(5, 5);
+            let robot = new Robot();
+            robot.setTable(board);
+
+           let isTrue = parser.parseCommand(`READ ${path}`, robot);
+           expect(isTrue).to.not.be.equal([]);
+        })  
+        
     }) 
     
 });

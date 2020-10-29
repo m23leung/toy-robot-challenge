@@ -36,9 +36,9 @@ describe("robot - Valid - Integration Test", function() {
 
       let length = 5;
       let width = 5;
-      let robot = new Robot(board);
       let board = new Table(length, width);
-      
+      let robot = new Robot(board);
+
       it(`Valid - Integration Test`, function() {
         // Have not been assigned to board, should throw error
         executeCommands(robot, commandsList);
@@ -46,8 +46,7 @@ describe("robot - Valid - Integration Test", function() {
         // Assign board, should be OK now
         robot.setTable(board);
         executeCommands(robot, commandsList);
-        
-        //expect(tableBoundaries.x2).to.be.equal(tableDimensions.tableWidth - 1);
+
       })
     
 });

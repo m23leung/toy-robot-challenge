@@ -63,7 +63,7 @@ export default class parser {
  * Checks if the file type extension is .txt
  * @param  path
  */   
-let isFileTypeTxt = function(path) {
+export const isFileTypeTxt = function(path) {
     const fileType = path.substr(path.lastIndexOf('.')).toLowerCase();
     
     if (fileType !== '.txt'){ 
@@ -78,7 +78,7 @@ let isFileTypeTxt = function(path) {
  * Reads the file based on the file path provided 
  * @param  path
  */   
-let parseReadCommand = function(path) {
+export const parseReadCommand = function(path) {
 
     if (!isFileTypeTxt(path)) {
         return [];
