@@ -24,6 +24,19 @@ describe("Redux store test", function() {
 
         // Modify the state
         store.dispatch(placeUnit(
+          { 'x': 3,
+            'y': 2, 
+            'direction': 'NORTH',
+            'xLength': 5,
+            'yLength': 5
+          }));
+
+          // (x,y) = (1,1)
+          expect(store.getState().x).equal(3);
+          expect(store.getState().y).equal(2);      
+
+        // Modify the state
+        store.dispatch(placeUnit(
             { 'x': 1,
               'y': 1, 
               'direction': 'NORTH',
@@ -49,20 +62,21 @@ describe("Redux store test", function() {
     });
 
     it(`Testing command - rotate`, function() {
-            
-        // Final direction is NORTH -> WEST
+          
         store.dispatch(rotateUnit({'side': sides.LEFT}));
+        expect(store.getState().direction).equal(directions.WEST);          
         store.dispatch(rotateUnit({'side': sides.LEFT}));
         store.dispatch(rotateUnit({'side': sides.RIGHT}));
         expect(store.getState().direction).equal(directions.WEST);  
+        store.dispatch(rotateUnit({'side': sides.RIGHT}));
+        expect(store.getState().direction).equal(directions.NORTH);
            
       });   
       
     it(`Redux state - report location`, function() {
         
         let result = store.dispatch(reportUnit());
-        //console.log("RESULT: ", result);
-        
+  
     });      
 
   });

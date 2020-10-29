@@ -30,18 +30,19 @@ export default class robot {
         console.log('These are the valid commands:'.bold);
         console.log('');
         console.log('PLACE x,y,f'.bold.underline);
-        console.log('- Where x and y is coordinates and f (facing) must be either NORTH, SOUTH, WEST or EAST');
+        console.log('- Where x and y are coordinates and f (facing) must be either NORTH, SOUTH, WEST or EAST');
         console.log('MOVE'.bold.underline);
-        console.log('- Will move the robot one unit in current direct');
+        console.log('- Will move the robot one unit in the current direction');
         console.log('LEFT'.bold.underline);
         console.log('- Will rotate the robot 90 degrees to the left');
         console.log('RIGHT'.bold.underline);
         console.log('- Will rotate the robot 90 degrees to the right');
         console.log('REPORT'.bold.underline);
-        console.log('- The robot will say the current position and facing direction');
+        console.log('- The robot will output the current position and facing direction');
         console.log('READ textfiles/example.txt'.bold.underline);
-        console.log('- You can use any textfile on your computer. The robot will execute all valid commands.');
-
+        console.log('- You can use any textfile on your computer. The robot will execute all the valid commands within.');
+        console.log('EXIT'.bold.underline);
+        console.log('- Will close the program');
         console.log();
         console.log('----------------------------------------------------------------------------------');
         console.log();
