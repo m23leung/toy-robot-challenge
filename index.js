@@ -33,6 +33,7 @@ const readLine = readline.createInterface({
 // Retrieve User Input
 readLine.on("line", (input) => { 
 
+    // Set Exit Prompt
     if (input.toLowerCase().trim() === "exit") {
         console.log("\nSee you later!!!");
         process.exit(0);
