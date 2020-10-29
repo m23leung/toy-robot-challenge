@@ -18,6 +18,7 @@ Toy robot is a program that permits a robot to be controlled from your terminal.
 - RIGHT - Rotates 90 degrees to right
 - REPORT - Reports current position and facing direction
 - READ path/file.txt - Reads a .txt file. Sample test files are provided in the textfiles folder
+- EXIT - Will close the program
 
 ## Technology Stack
 - Javascript
