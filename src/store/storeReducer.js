@@ -1,3 +1,7 @@
+/****************************************************
+* Purpose: Contains reducer for Redux store
+*****************************************************/
+
 import { createSlice } from '@reduxjs/toolkit';
 import Table from "../components/table";
 

@@ -1,3 +1,7 @@
+/*******************************
+* Purpose: Report command 
+********************************/
+
 import { command } from "./command";
 
 export default class rotate extends command {

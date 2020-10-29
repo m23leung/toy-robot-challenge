@@ -1,4 +1,8 @@
-import { assert, expect } from 'chai';
+/****************************************************
+* Purpose: Contains test functions for robot class
+*****************************************************/
+
+import { expect } from 'chai';
 import Robot from "../../src/components/robot";
 import Table from "../../src/components/table";
 

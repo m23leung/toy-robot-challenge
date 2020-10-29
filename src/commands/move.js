@@ -1,3 +1,6 @@
+/*******************************
+* Purpose: Move command 
+********************************/
 
 import { isValidMove } from "../validations/validations";
 import directions from "../constants/directions";

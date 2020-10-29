@@ -1,8 +1,12 @@
-import { assert, expect } from 'chai';
+/****************************************************
+* Purpose: Contains test functions for reducer store
+*****************************************************/
+
+import { expect } from 'chai';
 import configureStore from '../../src/store/store';
-import sides from "../../src/constants/sides";
-import { reportUnit, rotateUnit, placeUnit, moveUnit } from '../../src/store/commands';
+import { reportUnit, rotateUnit, placeUnit, moveUnit } from '../../src/store/storeReducer';
 import directions from "../../src/constants/directions";
+import sides from "../../src/constants/sides";
 
 // Testing here includes for both files commands/commands & commands/store
 describe("Redux store test", function() {

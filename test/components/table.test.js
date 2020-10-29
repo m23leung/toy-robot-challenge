@@ -1,4 +1,8 @@
-import { assert, expect } from 'chai';
+/****************************************************
+* Purpose: Contains test functions for table class
+*****************************************************/
+
+import { expect } from 'chai';
 import Table from "../../src/components/table";
 
 describe("table - Valid Table", function() {

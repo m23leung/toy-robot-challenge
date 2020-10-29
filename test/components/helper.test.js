@@ -1,4 +1,8 @@
-import { assert, expect } from 'chai';
+/****************************************************
+* Purpose: Contains test functions for helper
+*****************************************************/
+
+import { expect } from 'chai';
 import { isFileTypeTxt, handleReadCommand, handleCommand } from '../../src/components/helper'; 
 
 describe("helper - Valid Helper", function() {

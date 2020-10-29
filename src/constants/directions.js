@@ -1,4 +1,6 @@
-// Stores the directions
+/****************************************************
+* Purpose: Stores the directions
+*****************************************************/
 
 let directions = {
     NORTH: 'NORTH',

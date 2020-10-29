@@ -1,7 +1,8 @@
-// Stores the commands
-import sides from "../constants/sides";
+/****************************************************
+* Purpose: Stores the user input commands
+*****************************************************/
 
-// Stores the commands
+import sides from "../constants/sides";
 
 let commandList = {
     MOVE: 'MOVE',

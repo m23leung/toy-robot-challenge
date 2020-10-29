@@ -1,3 +1,7 @@
+/****************************************************
+* Purpose: Parent command class
+*****************************************************/
+
 export class command {
     
     constructor(state, action) {

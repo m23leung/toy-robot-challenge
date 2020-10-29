@@ -1,5 +1,8 @@
+/************************************************************
+* Purpose: Parses user input to invoke appropriate commands
+*************************************************************/
 
-import { placeUnit, moveUnit, rotateUnit, reportUnit } from '../store/commands';
+import { placeUnit, moveUnit, rotateUnit, reportUnit } from '../store/storeReducer';
 import { invalidCommand } from '../constants/errorMessages';
 import { handleReadCommand } from './helper'; 
 import { isValidPlaceArgs, isRobotOnTable, hasArgs } from "../validations/validations"

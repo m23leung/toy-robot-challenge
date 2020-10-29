@@ -1,4 +1,6 @@
-/* This is the main entry program */
+/****************************************************
+* Purpose: Main entry to program
+*****************************************************/
 
 // Package Imports
 import Robot from "./src/components/robot";

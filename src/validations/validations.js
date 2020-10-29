@@ -1,3 +1,7 @@
+/****************************************************
+* Purpose: Contains all the validation functions
+*****************************************************/
+
 import { invalidDirection, invalidPlacement, invalidArguments, unassignedBoard } from "../constants/errorMessages";
 import directions from "../constants/directions";
 

@@ -1,4 +1,8 @@
-import { assert, expect } from 'chai';
+/****************************************************
+* Purpose: Contains test functions for validations 
+*****************************************************/
+
+import { expect } from 'chai';
 import { isValidMove, isValidDirection } from "../../src/validations/validations";
 import directions from "../../src/constants/directions";
 

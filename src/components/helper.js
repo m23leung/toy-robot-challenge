@@ -1,4 +1,7 @@
-// Helper function for robot.js
+/*************************************
+* Purpose: Helper function for parser
+**************************************/
+
 import { invalidCommand, invalidFileExt, fileNotFound } from '../constants/errorMessages';
 import commandList from "../constants/commandList";
 import fs from 'fs';

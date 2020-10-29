@@ -1,3 +1,7 @@
+/*******************************
+* Purpose: Rotate command 
+********************************/
+
 import directions from "../constants/directions";
 import sides from "../constants/sides";
 import { command } from "./command";

@@ -1,4 +1,8 @@
 
+/*******************************
+* Purpose: Place command 
+********************************/
+
 import { isValidMove, isValidDirection } from "../validations/validations";
 import { command } from "./command";
 

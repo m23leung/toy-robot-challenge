@@ -1,3 +1,7 @@
+/**************************************************************************
+* Purpose: Robot class - performs command actions based on user input
+***************************************************************************/
+
 import configureStore from '../store/store';
 import { handleCommand } from './parser';
 import { notOnBoard } from "../constants/errorMessages";

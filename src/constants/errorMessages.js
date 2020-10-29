@@ -1,3 +1,7 @@
+/****************************************************
+* Purpose: Stores the validation error messages
+*****************************************************/
+
 export const invalidDirection = "That is an invalid direction";
 export const invalidPlacement = "You cannot kill me";
 export const invalidCommand   = "Invalid Command Entered";
