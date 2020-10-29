@@ -34,9 +34,9 @@ const handleCommand = (input, robot) => {
 
                     let [x,y,f] = commandArguments.split(',');   
                     
-                    // If not all args entered, throw invalid arg error
-                    if (!y || !f) {
-                        console.log(invalidArguments);;
+                    // If not all args entered, or arguments x,y not number, then throw invalid arg error
+                    if (!y || !f || isNaN(parseInt(x)) || isNaN(parseInt(y)) ) {
+                        console.log(invalidArguments);
                         return [];
                     }
                     // END

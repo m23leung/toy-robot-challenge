@@ -4,7 +4,7 @@ import directions from "../../src/constants/directions";
 
 describe("validations - Valid Moves", function() {
       // [x,y, xMaxLength, yMaxLength]
-      let validMoves = [[4,5,1,5], [0,5,0,5],[2,5,3,5],[4,5,4,5]];
+      let validMoves = [[4,5,1,5], [0,5,0,5],[2,5,3,5],[4,5,4,5], [0,0,0,0], [5,5,5,5]];
 
       validMoves.map( validMove => {
         it(`Valid Move ${validMove}`, function() {
@@ -14,9 +14,9 @@ describe("validations - Valid Moves", function() {
       });
     });
 
-describe("validations - Valid Moves", function() {
+describe("validations - Invalid Moves", function() {
        // [x,y, xMaxLength, yMaxLength] 
-      let invalidMoves = [ [2,5,6,5], [0,0,0,0], [6,5,0,5], [5,5,5,5]];  
+      let invalidMoves = [ [2,5,6,5], [6,5,0,5], [5,5,6,5]];  
 
       invalidMoves.map( invalidMove => {
         it(`Invalid Move ${invalidMove}`, function() {

@@ -64,7 +64,7 @@ export default class robot {
         this.table = table;
     }
 
-    getTable(table) {
+    getTable() {
         return this.table;
     }
 
