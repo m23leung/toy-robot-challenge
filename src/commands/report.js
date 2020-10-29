@@ -15,7 +15,7 @@ export default class rotate extends command {
  */       
     reportUnit() {
         const { x, y, direction } = this.state;   
-        console.log(`ROBOT LOCATION (x,y,direction) - (${x},${y}) ${direction} Direction`);              
+        console.log(`${x},${y},${direction}`);              
     }
 
 }
