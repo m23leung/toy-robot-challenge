@@ -34,7 +34,7 @@ In terms of the flow of the program, the table first gets initialized. Afterward
 
 It can be argued that an OOP approach will be more memory consuming/performance heavy than going a purely functional programming approach. As a result, I tried to not create any unnecessary classes and minimized the amount of object creation instances with this OOP approach.
 
-![architecture flow diagram](architecture_flow.png)
+![architecture flow diagram](architecture_flow_diagram.png)
 
 ## Conclusion
 If I were to add more features, I would finish incorporating the UNDO functionality, and add the ability to move several steps at a time. There is also room to incorporate history of executed commands.
