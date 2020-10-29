@@ -45,7 +45,7 @@ Note: Please make sure to have node.js installed.
 
 ![execution flow diagram](execution_flow_diagram.png)
 
-- In terms of the program execution flow, the table first gets initialized. Afterwards, the robot gets initialized, assigns it to the table, and then initializes the parser. Once the user inputs a command, it goes through the parser, which parses the command and invokes the redux store to process the action. The validation functions are used to validate the input data and throw appropriate error messages. The redux store will then call the reducer with the appropriate dispatched command to be executed. Once the command is executed, the state will be mutated and saved. In our case, this means the robot's state on the board is saved after successfully executing the correct commands from the terminal.
+- In terms of the program execution flow, the table first gets initialized. Afterwards, the robot gets initialized, assigns it to the table, and then initializes the parser. Once the user inputs a command, it goes through the parser, which parses the command and invokes the redux store to process the action. The validation functions are used to validate the input data and throw appropriate error messages. The redux store will then call the reducer with the appropriate dispatched command to be executed. Once the command is executed, the state will be mutated and saved (thanks to immer). In our case, this means the robot's state on the board is saved after successfully executing the correct commands from the terminal.
 
 ## Conclusion
 - If I were to add more features, I would finish incorporating the UNDO functionality, and add the ability to move several steps at a time. There is also room to incorporate history of executed commands.
