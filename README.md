@@ -1,4 +1,4 @@
-#Toy Robot Challenge
+# Toy Robot Challenge
 
 Toy robot is a program that permits a robot to be controlled from your terminal. It drives around on a 5*5 board and listens to the following commands:
 
@@ -33,4 +33,4 @@ I have developed this program in mostly an OOP approach, where ES6 classes are u
 In terms of the flow of the program, the table gets initialized. Afterwards, the robo gets initialized, which then initializes the parser. When the user inputs a command, it goes through the parser, which parses the command and invokes the redux store to process it. The validation functions are used to validate and throw appropriate error messages. The redux store will then dispatch the appropriate command to be executed. Once the command is executed, the state will be mutated and saved. In our case, this means the robot's state on the board is saved after successfully executing the correct commands from the terminal.
 
 ## Conclusion
-If I were to add more features, I would finish incorporating the UNDO functionality, and add the ability to move several steps at a time.
+If I were to add more features, I would finish incorporating the UNDO functionality, and add the ability to move several steps at a time. There is also room to incorporate error logging.
