@@ -13,7 +13,4 @@ export class command {
         // Placeholder for execute
     }
 
-    undo() {
-        // Placeholder for undo
-    }
 }

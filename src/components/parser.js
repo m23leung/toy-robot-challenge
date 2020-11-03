@@ -2,7 +2,7 @@
 * Purpose: Parses user input to invoke appropriate commands
 *************************************************************/
 
-import { placeUnit, moveUnit, rotateUnit, reportUnit } from '../store/storeReducer';
+import { placeUnit, moveUnit, rotateUnit, reportUnit, undo } from '../store/storeReducer';
 import { isValidPlaceArgs, isRobotAssignedTable, hasArgs } from "../validations/validations"
 import commandList from "../constants/commandList";
 import { invalidCommand, invalidFileExt, fileNotFound } from '../constants/errorMessages';
@@ -31,7 +31,6 @@ export default class parser {
                     case commandList.PLACE:
                         
                         if (! isValidPlaceArgs(commandArgs)) return [];
-                        console.log("ROBOT ON TABLE ", !isRobotAssignedTable(robot));
                         if (!isRobotAssignedTable(robot)) return [];
 
                         let [x,y,f] = commandArgs.split(',');  
@@ -53,6 +52,9 @@ export default class parser {
                             )
                         })
                         return [];
+                        case commandList.UNDO:
+                            return [undo()];  
+
                     default:
                         console.log(invalidCommand,':', commandType);
                         return [];                                       

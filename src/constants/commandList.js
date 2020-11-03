@@ -9,6 +9,7 @@ let commandList = {
     REPORT: 'REPORT',
     PLACE: 'PLACE',
     READ: 'READ',
+    UNDO: 'UNDO',
     ...sides
 };
 

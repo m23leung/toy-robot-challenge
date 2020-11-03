@@ -13,10 +13,6 @@ export default class rotate extends command {
         return this;
     }
 
-    undo() {
-            let state = this.state;
-            state.direction = state.directionPrev;
-    }
 /**
  * Rotates the unit on the board.
  * The direction which the unit will rotate will be based 

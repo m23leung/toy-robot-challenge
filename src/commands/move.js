@@ -19,12 +19,6 @@ export default class move extends command {
         return this;
     }
 
-    undo() {
-        let state = this.state;
-        state.x = state.xPrev;
-        state.y = state.yPrev;
-    }
-
 /**
  * Moves the unit X steps in the facing direction.
  * If the unit tries to move outside boundaries, 
@@ -50,6 +44,7 @@ export default class move extends command {
         // Set previous state to current coordinates
         let xPrev = x;
         let yPrev = y;
+        let directionPrev = direction;
 
         // Calculate newly moved destination
         switch(direction) {
@@ -72,9 +67,11 @@ export default class move extends command {
 
             state.xPrev = parseInt(xPrev);
             state.yPrev = parseInt(yPrev);
+            state.directionPrev = direction;
 
             state.x = parseInt(x);
-            state.y = parseInt(y);    
+            state.y = parseInt(y);  
+            state.direction = direction;  
         }       
     }
   }
