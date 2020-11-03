@@ -3,7 +3,7 @@
 *************************************************************/
 
 import { placeUnit, moveUnit, rotateUnit, reportUnit } from '../store/storeReducer';
-import { isValidPlaceArgs, isRobotOnTable, hasArgs } from "../validations/validations"
+import { isValidPlaceArgs, isRobotAssignedTable, hasArgs } from "../validations/validations"
 import commandList from "../constants/commandList";
 import { invalidCommand, invalidFileExt, fileNotFound } from '../constants/errorMessages';
 import fs from 'fs';
@@ -31,7 +31,8 @@ export default class parser {
                     case commandList.PLACE:
                         
                         if (! isValidPlaceArgs(commandArgs)) return [];
-                        if (!isRobotOnTable(robot)) return [];
+                        console.log("ROBOT ON TABLE ", !isRobotAssignedTable(robot));
+                        if (!isRobotAssignedTable(robot)) return [];
 
                         let [x,y,f] = commandArgs.split(',');  
 

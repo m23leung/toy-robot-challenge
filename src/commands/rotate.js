@@ -10,6 +10,7 @@ export default class rotate extends command {
 
     execute() {
         this.rotateUnit();   
+        return this;
     }
 
     undo() {

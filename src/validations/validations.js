@@ -67,7 +67,7 @@ export const isValidPlaceArgs = (commandArgs) => {
 * Checks if robot is on table
 * @param  robot
 */
-export const isRobotOnTable = (robot) => {
+export const isRobotAssignedTable = (robot) => {
     if (!robot.table) {
         console.log(unassignedBoard);
         return false;

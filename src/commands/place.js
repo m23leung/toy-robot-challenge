@@ -10,6 +10,7 @@ export default class place extends command {
     
     execute() {
         this.placeUnit();   
+        return this;
     }
 
  /**

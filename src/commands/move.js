@@ -16,6 +16,7 @@ export default class move extends command {
 
     execute() {
         this.moveUnit(this.steps);   
+        return this;
     }
 
     undo() {

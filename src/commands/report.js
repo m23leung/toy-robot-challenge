@@ -8,6 +8,7 @@ export default class rotate extends command {
 
     execute() {
         this.reportUnit();  
+        return this;
     }
 
  /**
