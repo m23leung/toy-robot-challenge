@@ -7,6 +7,7 @@ import { handleCommand } from './parser';
 import { notOnBoard } from "../constants/errorMessages";
 import commandList from "../constants/commandList";
 import Parser from "./parser";
+import { getDirection } from '../store/storeReducer';
 
 import chalk from "chalk";
 const colors = require('colors');
@@ -69,6 +70,10 @@ export default class robot {
     */       
     handleCommand(input) {
         
+        //console.log(store.getState());
+        //const direction = getDirection(store.getState());
+        //console.log("DIRECTION IS: ", direction);
+
         if (!input.trim()) return;    
         input = input.toUpperCase().trim();
 

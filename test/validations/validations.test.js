@@ -3,7 +3,7 @@
 *****************************************************/
 
 import { expect } from 'chai';
-import { isValidMove, isValidDirection, isValidPlaceArgs, isRobotOnTable } from "../../src/validations/validations";
+import { isValidMove, isValidDirection, isValidPlaceArgs, isRobotAssignedTable } from "../../src/validations/validations";
 import directions from "../../src/constants/directions";
 import Robot from "../../src/components/robot";
 import Table from "../../src/components/table";
@@ -82,7 +82,7 @@ describe("validations - Place Args", function() {
     });
 });
 
-describe("validations - robot on table", function() {
+describe("validations - robot assigned table", function() {
 
     // Initialize table
     let length = 5;
@@ -92,14 +92,14 @@ describe("validations - robot on table", function() {
     // Initialize robot
     let robot = new Robot();
 
-    it(`Robot not on table`, function() {
-      let isFalse = isRobotOnTable(robot);
+    it(`Robot not assigned table`, function() {
+      let isFalse = isRobotAssignedTable(robot);
       expect(isFalse).to.be.equal(false);
     });
 
-    it(`Robot on table`, function() {
+    it(`Robot assigned table`, function() {
       robot.setTable(board);
-      let isTrue = isRobotOnTable(robot);
+      let isTrue = isRobotAssignedTable(robot);
       expect(isTrue).to.be.equal(true);
     });
 });

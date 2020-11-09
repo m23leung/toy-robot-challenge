@@ -45,3 +45,8 @@ const slice = createSlice({
 
 export const {moveUnit, rotateUnit, placeUnit, reportUnit, undo} = slice.actions;
 export default slice.reducer;
+
+// Selector - Takes state and returns computed state
+export const getDirection = state => {
+    return state.direction;
+}

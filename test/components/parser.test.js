@@ -31,9 +31,19 @@ describe("Parser - Valid Parser", function() {
             robot.setTable(board);
 
            let isTrue = parser.parseCommand(`READ ${path}`, robot);
-           expect(isTrue).to.not.be.equal([]);
+           expect(isTrue).to.have.length(0);
         })  
         
+
+        it(`Parser - parseCommand empty`, function() {
+
+            let board = new Table(5, 5);
+            let robot = new Robot();
+            robot.setTable(board);
+
+           let isTrue = parser.parseCommand(``, robot);
+           expect(isTrue).to.have.length(0);
+        })  
     }) 
     
 });
